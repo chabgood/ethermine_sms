@@ -70,7 +70,7 @@ class Etherminer
   def send_sms
     if self.workers_online > 0
       client = Twilio::REST::Client.new(ENV['ACCT_SID'], ENV['AUTH_TOKEN'])
-      client.messages.create(from: ENV['FROM'], to: ENV['TO'], body: "Total #{self.coin}: #{self.total_paid} \n Workers Online: #{workers_online} \n USD: $#{self.usd_amount} \n Hashrate: #{hashrate}")
+      client.messages.create(from: ENV['FROM'], to: ENV['TO'], body: "Total #{self.coin}: #{self.total_paid} \n Unpaid: #{self.unpaid_coin_amount} \n Workers Online: #{workers_online} \n USD: $#{self.usd_amount} \n Hashrate: #{hashrate}")
     end
   end
 end
